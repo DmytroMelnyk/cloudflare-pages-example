@@ -1,19 +1,21 @@
-# name: Deploy
+name: Deploy
 
-# on:
-#   push:
-#     branches:
-#       - main
+on:
+  push:
+    branches:
+      - main
 
-# jobs:
-#   deploy:
-#     runs-on: ubuntu-latest
-#     name: Deploy
-#     steps:
-#       - uses: actions/checkout@v2
-#       - run: npm install
-#       - name: Publish
-#         uses: cloudflare/wrangler-action@2.0.0
-#         with:
-#           command: publish --env=production
-#           apiToken: ${{ secrets.CF_API_TOKEN }}
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - uses: actions/checkout@v2
+      - run: cd my-app && npm install && npm run build
+      - name: Publish
+        uses: cloudflare/pages-action@1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          projectName: 
+          directory: dist/my-app
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
