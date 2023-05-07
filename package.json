@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "@angular/cli": "^16.0.0",
+    "wrangler": "^2.19.0"
+  }
+}
