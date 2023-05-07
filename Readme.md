@@ -1,14 +1,12 @@
 ## Good sources:
 
-https://github.com/fauna-labs/fauna-workers
-https://github.com/cloudflare/miniflare-typescript-esbuild-jest
+for local development its possible to use 2 approaches:
+https://github.com/cloudflare/workers-sdk/issues/1873
+CLOUDFLARE_API_TOKEN=token npx wrangler pages publish dist/my-app --project-name pages-dev
 
-## Lerna (monorepo)
-https://developers.cloudflare.com/workers/tutorials/manage-projects-with-lerna/
+or 
+CLOUDFLARE_API_TOKEN=token CLOUDFLARE_ACCOUNT_ID=accountid npx wrangler pages publish dist/my-app --project-name pages-dev
+But second approach fits CI
 
-## How to run
-1. Open as dev container in VS Code
-1. Create database Products:
-11. Go to Fauna extension in the VS Code
-11. Press Create button and select collection
-11. Name collection as Products
+Deployment:
+https://developers.cloudflare.com/pages/how-to/use-direct-upload-with-continuous-integration/#deploy-with-wrangler
