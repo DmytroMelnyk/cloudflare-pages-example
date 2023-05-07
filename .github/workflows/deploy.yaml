@@ -16,6 +16,6 @@ jobs:
         uses: cloudflare/pages-action@1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          projectName: 
+          projectName: pages-dev
           directory: dist/my-app
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
